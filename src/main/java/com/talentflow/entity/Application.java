@@ -28,18 +28,19 @@ public class Application {
     private Job job;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "status", nullable = false)
     private ApplicationStatus status = ApplicationStatus.APPLIED;
 
-    @Column(nullable = false)
+    @Column(name = "resume_link", nullable = false)
     private String resumeLink;
 
-    @Column(nullable = false, updatable = false)
+    @Column(name = "applied_at", nullable = false, updatable = false)
     private LocalDateTime appliedAt;
 
     @PrePersist
     protected void onCreate() {
-        appliedAt = LocalDateTime.now();
+        if (this.appliedAt == null) {
+            this.appliedAt = LocalDateTime.now();
+        }
     }
 }
-
