@@ -16,7 +16,6 @@ This guide explains how developers and users can integrate with and use the Tale
 ---
 
 ## Authentication Flow
-
 The TalentFlow API uses **JWT (JSON Web Token)** authentication. All protected endpoints require a valid token.
 
 ### Step 1: Register a New User
